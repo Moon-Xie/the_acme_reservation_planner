@@ -78,7 +78,7 @@ const fetchRestaurants = async () => {
 
 const fetchReservations = async () => {
     const SQL = /*sql*/ `
-        SELECT * FROM reservation;
+        SELECT * FROM reservations;
     `
     const response = await client.query(SQL)
     return response.rows
@@ -86,7 +86,7 @@ const fetchReservations = async () => {
 
 const destroyReservation = async ({customer_id, id}) => {
     const SQL = /*sql*/ `
-        DELETE FROM reservation 
+        DELETE FROM reservations 
         WHERE customer_id = $1 AND id = $2
     `
     const values = [customer_id, id]
