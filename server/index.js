@@ -4,6 +4,8 @@ const app = express()
 const morgan = require('morgan')
 app.use(morgan('dev'))
 app.use(express.json())
+const apiRouter = require('./api')
+app.use('/api', apiRouter)
 const PORT = process.env.PORT
 const {
     client,
